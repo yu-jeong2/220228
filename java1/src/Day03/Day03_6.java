@@ -106,8 +106,8 @@ public class Day03_6 {//c s
 			//별문제9 : 입력받은 줄만큼 출력
 			
 			System.out.println("문제9) 줄 수 : "); int s9=scanner.nextInt();
-			for(int i=1;i<=S9;i++) {
-				for(int b=1;b=i*2-1;b++) {System.out.print(" ");
+			for(int i=1;i<=s9;i++) {
+				for(int b=1;b<=i*2-1;b++) {System.out.print(" ");
 				}for(int s=1;s<=i;s++) {System.out.print("*");
 				}
 			System.out.println(" ");
