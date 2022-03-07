@@ -26,18 +26,21 @@ public class Day05_4 { //c s
 					//2.도서목록시 모든도서명 출력
 					//3.도서삭제시 삭제할 도서명을 입력받아 동일한도서명 삭제[null]
 					//4.로그아웃시 초기메뉴로
+		
+		Scanner scanner = new Scanner(System.in); 
 		while(true) {
+				
 		System.out.println("-------도서대여 관리자 모드--------");
 		System.out.println("1. 도서등록 2.도서목록 3.도서삭제 4.로그아웃");
-
-		Scanner scanner = new Scanner(System.in); int 선택 = scanner.nextInt();
+		int 선택 = scanner.nextInt();
+	
 		String[] booklist=new String[100];
 		if (선택==1) {//if 1
 			System.out.println("-------도서 등록-------");
 			System.out.println("도서명을 입력하시오. : "); String 도서=scanner.next();
 			boolean 도서중복=true;
 			for(int i=0;i<booklist.length;i++) {
-				if(booklist[i] !=null&& booklist[i].equals(도서)) {//if 2
+				if(booklist[i][0] !=null&& booklist[i].equals(도서)) {//if 2
 					System.err.println("알림))동일한 책이 존재합니다.");
 					도서중복=false;
 					break;
@@ -47,25 +50,36 @@ public class Day05_4 { //c s
 				for(int i=0;i<booklist.length;i++) {
 					if(booklist[i]==null) {
 						booklist[i]=도서;
-					}
-				System.err.println("도서가 등록되었습니다.");
-				break;
+						System.err.println("도서가 등록되었습니다.");
+						break;
+					}//if end
+				
 				}//for end
 				
 			}//if end
 		}//if1 end
 		else if (선택==2) {
 			for(int i=0;i<booklist.length;i++) {
-				if (booklist[i] !=null) {			
+							
 				System.out.println("--------도서목록--------");
 				System.out.println("번호\t도서목록\t");
+				if (booklist[i] !=null) {
 				System.out.printf("%d\t%s",i,booklist[i]);
-					}
-			}
+					}//if end
+			}//for end
 		}//else 2 end
 		else if(선택==3) {}
 		else if(선택==4) {}
 		else {System.err.println("올바르지 못한 방법입니다.");}
+		
+		
+		
+	
+				
+				
+		
+		
+		
 		
 		
 		
