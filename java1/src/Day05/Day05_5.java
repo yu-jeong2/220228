@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Day05_5 { // cs
 	
-	public static void main(String[] args) { // ce
+	public static void main(String[] args) { // ms
 		
 		String[][] memberlist = new String[100][2];	// 100명기준
 		String[][] booklist = new String[100][3];	// 100개기준
@@ -12,6 +12,7 @@ public class Day05_5 { // cs
 		Scanner scanner = new Scanner(System.in);
 		
 		while(true) {
+			
 			System.out.println("------- 도서 대여 프로그램 -------");
 			System.out.println("1. 회원가입 2. 로그인");
 			System.out.println("-----------------------------");
@@ -47,8 +48,8 @@ public class Day05_5 { // cs
 				
 			
 				
-				for(int i = 0; i<memberlist.length; i++) {
-					if(memberlist[i][0].equals("admin")) {
+						if(id.equals("admin")) {//관리자모드조회
+						while(true) {
 						System.out.println("---------- 관리자 메뉴 ----------");
 						System.out.println("1. 도서등록 2. 도서목록 3. 로그아웃");	int 선택3 = scanner.nextInt();
 						if(선택3==1) {
@@ -69,17 +70,27 @@ public class Day05_5 { // cs
 										booklist[k][0]=도서;
 										System.err.println("도서가 등록되었습니다.");
 										break;
-									}	
-								}	
-							}	
+									}//if end
+								}//for  end
+							}//if end	
 						} // if e
-						else if(선택3==2) {}
-						else if(선택3==3) {}
+						else if(선택3==2) {
+							System.out.println("--------도서목록--------");
+							System.out.println("순서\t책이름\t");
+							for(int k=0;k<booklist.length;k++) {
+								if(booklist[k][0]!=null) {
+							System.out.printf("%d\t%s",k,booklist[k][0]);
+							System.out.println("");
+								}//if end
+							}//for end
+						}//관리자 선택2 end
+						else if(선택3==3) {
+							break;
+						}
 						else System.err.println("알림)알 수 없는 번호입니다.");
-					} // if e
-				} // for e
-		
-				
+					
+						}//while문 끝
+					}//관리자if 끝
 				
 				boolean logincheck = false;
 				for(int i = 0; i<memberlist.length; i++) {
@@ -102,13 +113,24 @@ public class Day05_5 { // cs
 										System.out.println("도서명 : " + 도서명 );
 										bookcheck = true;
 									} // if e
-									if(bookcheck==false)	System.err.println("알림)해당 도서 찾을 수 없습니다.");
+									if(bookcheck==false)	System.err.println("알림)해당 도서 찾을 수 없습니다."); break;
 								} // for e
 							}
-							else if(선택==2) {}
+							else if(선택==2) {
+								System.out.println("--------도서목록--------");
+								System.out.println("순서\t책이름\t");
+								for(int k=0;k<booklist.length;k++) {
+									if(booklist[k][0]!=null) {
+								System.out.printf("%d\t%s",k,booklist[k][0]);
+								System.out.println("");
+								
+									}//if end
+								}//for end
+							}//else 2 end
 							else if(선택==3) {}
 							else if(선택==4) {}
-							else if(선택==5) {}
+							else if(선택==5) {System.out.println("로그아웃 합니다.");
+							break;}
 							else {
 								System.err.println("알림)알 수 없는 번호입니다.");
 							} // else e

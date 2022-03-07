@@ -40,7 +40,7 @@ public class Day05_4 { //c s
 			System.out.println("도서명을 입력하시오. : "); String 도서=scanner.next();
 			boolean 도서중복=true;
 			for(int i=0;i<booklist.length;i++) {
-				if(booklist[i][0] !=null&& booklist[i].equals(도서)) {//if 2
+				if(booklist[i] !=null&& booklist[i].equals(도서)) {//if 2
 					System.err.println("알림))동일한 책이 존재합니다.");
 					도서중복=false;
 					break;
