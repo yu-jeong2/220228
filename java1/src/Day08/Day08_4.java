@@ -16,7 +16,7 @@ public class Day08_4 {
 	
 	static Scanner scanner = new Scanner(System.in);
 	static Member[] member=new Member[1000];
-	static Acc[] acc=new Acc[1000];
+	static Bank[] banklist = new Bank[100];
 	
 	public static void main(String[] args) {
 		Day08_4 mbank = new Day08_4();
@@ -41,10 +41,10 @@ public class Day08_4 {
 					}//로그인 실패
 					else if(result.equals("admin")) {//2.관리자 메뉴 메소드 호출
 						System.out.println("알림))안녕하세요~"+result+"님");
-						;
 					}//관리자 메뉴 호출
 					else {//1. 일반회원 메뉴 메소드 호출
 						System.out.println("알림))안녕하세요~"+result+"님");
+						bankmenu(result);
 					}//일반회원 메뉴 메소드 호출
 
 				}//else 2종료
@@ -53,30 +53,29 @@ public class Day08_4 {
 				else {System.err.println("알림))올바르지 못한 접근입니다.");}//else 기타 종료
 			}//while 무한반복 종료
 		}//void end
-		void membermenu(String loginid) {
+		void bankmenu(String loginid) {
 			while(true) {
 			System.out.println("-----------회원 메뉴-----------");
 			System.out.println("1.계좌생성 2.입금 3.출금 4.이체 5.대출 6.계좌목록 7.로그아웃\n선택 : ");
 			int ch=scanner.nextInt();
-				Acc acc = new Acc();
+			Bank banklist = new Bank();
 				if(ch==1) {//
-					acc.계좌생성();
+					banklist.계좌생성(loginid);
 				}//if 1end
 				else if(ch==2){
-					acc.입금();
-					
+					banklist.입금();
 				}//else 2end
 				else if(ch==3){
-					acc.출금();
+					banklist.출금();
 				}//else 3end
 				else if(ch==4){
-					acc.계좌이체();
+					banklist.계좌이체();
 				}
 				else if(ch==5) {
-					acc.대출();
+					banklist.대출();
 				}
 				else if(ch==6){
-					acc.계좌목록();
+					banklist.계좌목록(loginid);
 				}//else 6end
 				else if(ch==7){//로그아웃
 					return;//일반회원 메소드 종료[로그아웃]

@@ -45,7 +45,7 @@ public class Member {
 	
 	
 	boolean 회원가입() {
-		System.out.println("-----------------회원가입 페이지-----------------");
+		System.out.println("---------회원가입 페이지---------");
 		System.out.println("아이디 : ");	String id =Day08_4.scanner.next();
 		for(Member temp : Day08_4.member){
 			if(temp!=null&&temp.id.equals(id)) {
@@ -68,7 +68,7 @@ public class Member {
 		return false;
 	}//bool end
 	String 로그인() {
-		System.out.println("-----------------로그인 페이지-----------------");
+		System.out.println("---------로그인 페이지---------");
 		System.out.println("아이디 : ");	String id=Day08_4.scanner.next();
 		System.out.println("비밀번호 : ");	String pw=Day08_4.scanner.next();
 		for(Member temp:Day08_4.member) {
@@ -80,7 +80,7 @@ public class Member {
 		return null;//실패시 null반환
 	}		
 	void 아이디찾기() {
-		System.out.println("-----------------아이디 찾기 페이지-----------------");
+		System.out.println("---------아이디 찾기 페이지---------");
 		System.out.println("이름 : ");	String name=Day08_4.scanner.next();
 		System.out.println("연락처 : ");	String phone=Day08_4.scanner.next();
 		for(Member temp:Day08_4.member) {
@@ -90,11 +90,12 @@ public class Member {
 				return;
 			}//if종료
 			System.out.println("알림))일치하는 회원이 없습니다.");
+			return;
 		}//for문종료
-		return;
+		
 	}
 	void 비밀번호찾기() {
-		System.out.println("-----------------비밀번호 찾기 페이지-----------------");
+		System.out.println("---------비밀번호 찾기 페이지---------");
 		System.out.println("아이디 : ");	String id=Day08_4.scanner.next();
 		System.out.println("연락처 : ");	String phone=Day08_4.scanner.next();
 		for(Member temp:Day08_4.member) {
@@ -104,7 +105,6 @@ public class Member {
 				return;//동일한 값을 찾았으면 해당 메소드 종료
 			}
 			System.out.println("알림))일치하는 회원이 없습니다.");
-			return;
 		}
 		
 	}

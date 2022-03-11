@@ -50,12 +50,14 @@ public class Book {//도서클래스
 	void 도서대여(String loginid) {
 		System.out.println("------------도서대여 페이지------------");
 		System.out.println("ISBN : "); String isbn=Day07_5_book.scanner.next();
+		int i=0;
 		for(Book temp:Day07_5_book.books) {
+			//임시객체(배열이름 : 배열 내 0번 마지막인덱스 하나씩 임시 객체 대입
 			if(temp!=null&&temp.ISBN.equals(isbn)&&temp.brental) {
 				if(temp.brental) {
 					System.out.println("알림))해당 도서를 대여합니다.");
-					temp.brental=false;
-					temp.mid=loginid;
+					Day07_5_book.books[i].brental=false;
+					Day07_5_book.books[i].mid=loginid;
 					return;
 				}else {
 					System.out.println("알림)) 해당도서는 대여중입니다.");
