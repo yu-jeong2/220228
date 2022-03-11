@@ -29,7 +29,7 @@ public class Day07_5_book {//프론트, 입출력
 		//static : 프로그램 시작시 메모리 할당 / 프로그램 종료시에 메모리 삭제
 			//프로그램 전반적으로 모든 곳에 사용되는 메모리[변수]
 	static Scanner scanner = new Scanner(System.in);//static : 모든 곳에서 객체 없이 사용(호출) 가능
-	static Member[] member=new Member[1000];//모든 파일에서 사용하는 회원 목록 배열
+	static Member_2[] member=new Member_2[1000];//모든 파일에서 사용하는 회원 목록 배열
 	static Book[] books = new Book[1000];
 	public static void main(String[] args) {//m s
 		//메소드호출
@@ -48,7 +48,7 @@ public class Day07_5_book {//프론트, 입출력
 			System.out.println("-----------------도서 대여 프로그램-----------------");
 			System.out.println("1.회원가입 2.로그인 3.아이디 찾기 4.비밀번호 찾기  입력 : ");
 			int ch=scanner.nextInt();
-			Member member = new Member(); // 1~4 {}괄호에서 사용 가능
+			Member_2 member = new Member_2(); // 1~4 {}괄호에서 사용 가능
 			if(ch==1) {//회원가입 메소드  호출
 				Boolean result=member.회원가입();
 				if(result)System.err.println("알림))회원가입 성공");
@@ -102,7 +102,7 @@ public class Day07_5_book {//프론트, 입출력
 					book.도서대여(loginid);
 				}//else 3end
 				else if(ch==4){//도서반납
-					book.도서반납();
+					book.도서반납(loginid);
 				}//else 4end
 				else if(ch==5){//로그아웃
 					return;//일반회원 메소드 종료[로그아웃]

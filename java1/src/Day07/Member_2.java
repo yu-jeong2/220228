@@ -2,7 +2,7 @@ package Day07;
 
 import java.util.Scanner;
 
-public class Member {//멤버클래스
+public class Member_2 {//멤버클래스
 	//1.필드
 	int mno;		//회원번호[자동번호,중복X]
 	String id;		//아이디[중복X]
@@ -11,9 +11,9 @@ public class Member {//멤버클래스
 	String Phone;	//연락처
 	//2.생성자[생성자명==클레스명]
 		//1.빈 생성자[기본생성자] : 메소드호출용 객체 생성시
-	public Member() {}
+	public Member_2() {}
 		//2.모든 필드를 받는 생성자 : 회원가입용 객체 생성시
-	public Member(int mno, String id, String pw, String name, String phone) {
+	public Member_2(int mno, String id, String pw, String name, String phone) {
 		this.mno = mno;
 		this.id = id;
 		this.pw = pw;
@@ -27,7 +27,7 @@ public class Member {//멤버클래스
 		//1. 입력받는다[id,pw,name,phone]
 		System.out.println("아이디 : ");	String id = Day07_5_book.scanner.next();
 		//아이디중복체크
-		for(Member temp : Day07_5_book.member) {//아이디중복체크
+		for(Member_2 temp : Day07_5_book.member) {//아이디중복체크
 			if(temp!=null&&temp.id.equals(id)) {
 				System.err.println("알림))사용 중인 아이디 입니다.");
 				return false;//아이디가 중복되었기 때문에 가입실패
@@ -43,7 +43,7 @@ public class Member {//멤버클래스
 			//회원번호 자동 주입[마지막 회원(가장 최근에 가입한회원의 번호)의 회원번호+1]
 			int bno=0;//회원번호  저장하는 변수
 			int j=0;//인덱스
-			for(Member temp:Day07_5_book.member) {
+			for(Member_2 temp:Day07_5_book.member) {
 				if(temp==null) {//null찾기[null찾았을 때 null-1=마지막회원]
 					if(j==0) {
 						bno=1;//첫번째 인덱스가 null=>첫회원=>1부터 시작
@@ -58,10 +58,10 @@ public class Member {//멤버클래스
 		
 		
 		//2. 4개변수->객체화->1개로 저장
-		Member member=new Member(0,id,pw,name,phone);//모든 필드를 받는 생성자로 객체생성
+		Member_2 member=new Member_2(0,id,pw,name,phone);//모든 필드를 받는 생성자로 객체생성
 		int i=0;
 		//3. 배열 내 빈 공간을 찾아서 새로운 회원[객체]넣기
-		for(Member temp:Day07_5_book.member) {
+		for(Member_2 temp:Day07_5_book.member) {
 			if(temp==null) {
 				Day07_5_book.member[i]=member;
 				System.out.println(" 알림)) 회원님의 회원번호 : " + bno);
@@ -81,7 +81,7 @@ public class Member {//멤버클래스
 		System.out.println("아이디 : ");	String id=Day07_5_book.scanner.next();
 		System.out.println("비밀번호 : ");	String pw=Day07_5_book.scanner.next();
 		//2.배열 내 객체 id와 pw가 입력한 값과 동일하면
-		for(Member temp:Day07_5_book.member) {
+		for(Member_2 temp:Day07_5_book.member) {
 			if(temp!=null&&temp.id.equals(id)&&
 					temp.pw.equals(pw)) {
 				return temp.id;
@@ -96,7 +96,7 @@ public class Member {//멤버클래스
 		System.out.println("이름 : ");	String name=Day07_5_book.scanner.next();
 		System.out.println("연락처 : ");	String phone=Day07_5_book.scanner.next();
 		//2.입력받은 값을 배열에 찾기
-		for(Member temp:Day07_5_book.member) {
+		for(Member_2 temp:Day07_5_book.member) {
 			if(temp!=null&&temp.name.equals(name)&&
 					temp.Phone.equals(phone)) {
 				//공백이 아니면서 해당 객체 내 name,phone 이 입력받은 값과 동일하면
@@ -113,7 +113,7 @@ public class Member {//멤버클래스
 		System.out.println("-----------------비밀번호 찾기 페이지-----------------");
 		System.out.println("아이디 : ");	String id=Day07_5_book.scanner.next();
 		System.out.println("연락처 : ");	String phone=Day07_5_book.scanner.next();
-		for(Member temp:Day07_5_book.member) {
+		for(Member_2 temp:Day07_5_book.member) {
 			if(temp!=null&&temp.id.equals(id)&&
 					temp.Phone.equals(phone)) {
 				System.out.println("회원님의 비밀번호 : "+temp.pw);

@@ -89,7 +89,7 @@ public class Book {//도서클래스
 	}//도서반납 종료
 	
 		//현재 로그인 한 회원이 대여중인 도서 목록[내 도서목록]
-	void 도서목록(String loginid) {
+	void 도서대여목록(String loginid) {
 	System.out.println("------------도서목록 페이지------------");
 	System.out.println("ISBN\t도서명\t작가\t대여가능여부");
 	for(Book temp:Day07_5_book.books) {
