@@ -13,7 +13,7 @@ public class 시험예제 {
 	
 	public static void main(String[] args) {
 		Scanner  scanner= new Scanner(System.in);
-		학생[] 학생list = new 학생[100];
+		static 학생[] 학생배열 = new 학생[100];//배열은 동일한 자료명만 저장 가능....?????????? 
 		while(true) {//
 		try {
 			System.out.println("----------------------------------------");//
@@ -21,30 +21,25 @@ public class 시험예제 {
 			System.out.println("----------------------------------------");//
 			System.out.println("번호\t이름\t국어\t영어\t수학\t총점\t평균\t석차");
 			
-			int i = 0;
-			for( 학생 학생  : 학생list ) {
-				if( 학생 != null ) {
-					System.out.printf("%d\t,%s\t,%d\t,%d\t,%d\t,%d\t,%2f\t,%d\t",i,학생.get국어(),학생.get수학(),학생.get영어(),학생.get총점(),학생.get평균(),학생.get순번());
-				}i++;
+			for(int i = 0; i<학생배열.length; i++ ){
+				if( 학생배열 != null ) {
+					System.out.printf("%d\t,%s\t,%d\t,%d\t,%d\t,%d\t,%2f\t,%d\t",i,학생배열[i].이름,학생배열[i].국어,학생배열[i].영어,학생배열[i].수학,학생배열[i].총점,학생배열[i].평균,학생배열[i].순번);
+				}i++;break;
 			}
 			System.out.println("1.학생점수등록 2.학생점수삭제"); int ch=scanner.nextInt();//	
 			if(ch==1) {//
+				System.out.println("번호 점수 : ");int 번호=scanner.nextInt();
 				System.out.println("학생 이름 : ");String 이름=scanner.next();
 				System.out.println("국어 점수 : ");int 국어=scanner.nextInt();
 				System.out.println("영어 점수 : ");int 영어=scanner.nextInt();
 				System.out.println("수학 점수 : ");int 수학=scanner.nextInt();
+				학생 학생=new 학생(번호,이름,국어,영어,수학);
 				 int 총점=국어+영어+수학;
 				 double 평균=총점/3;
-				학생 member = new 학생();
-				member.이름=이름;
-				member.국어=국어;
-				member.영어=영어;
-				member.수학=수학;
-
-				int j = 0;
-				for( 학생 temp  : 학생list ) { 
-					if( temp != null ) { 
-						학생list[j] = member; 
+				 int j = 0 ;
+				for(학생 temp:학생배열) {
+					if( 학생배열 != null ) { 
+						학생배열[j] = 학생; 
 						break;
 						}//if end
 					j++;
