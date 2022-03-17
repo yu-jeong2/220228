@@ -1,4 +1,4 @@
-package Day00;
+package A_tast;
 
 public class 컨트롤러 {
 

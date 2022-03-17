@@ -1,4 +1,4 @@
-package Day00;
+package A_tast;
 
 import java.util.ArrayList;
 import java.util.Scanner;
